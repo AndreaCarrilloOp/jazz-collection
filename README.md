@@ -18,7 +18,7 @@ Aplicación web académica para explorar y administrar un **catálogo de música
 
 ![Vista previa de Jazz Collection]( docs/preview.png)
 
-## 📌 Descripción
+## Descripción
 
 **Jazz Collection** administra tres entidades relacionadas:
 
@@ -30,7 +30,7 @@ El sistema permite listar, consultar, crear, editar y eliminar registros, ademá
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 - Listado de los **12 álbumes** iniciales.
 - Listado de **6 artistas**.
@@ -46,7 +46,7 @@ El sistema permite listar, consultar, crear, editar y eliminar registros, ademá
 
 ---
 
-## 🧩 Modelo de datos
+## Modelo de datos
 
 ```text
 ARTISTS
@@ -93,7 +93,7 @@ SUBGENRES
 
 ---
 
-## 📁 Estructura principal
+## Estructura principal
 
 ```text
 jazz-collection/
@@ -132,7 +132,7 @@ jazz-collection/
 
 ---
 
-## 🚀 Instalación y ejecución local
+## Instalación y ejecución local
 
 Clonar el repositorio:
 
@@ -167,7 +167,7 @@ npx wrangler dev
 
 ---
 
-## 🗄️ Cloudflare D1
+## Cloudflare D1
 
 Base de datos:
 
@@ -254,7 +254,7 @@ servers:
 
 ---
 
-## ☁️ Despliegue
+## Despliegue
 
 El proyecto se encuentra desplegado en **Cloudflare Workers**.
 
@@ -275,18 +275,3 @@ El despliegue publicado tiene acceso a:
 env.DB      → catalogo-jazz-db
 env.ASSETS  → Assets
 ```
-
----
-
-## 🎓 Contexto académico
-
-Proyecto desarrollado con fines académicos y alineado con los contenidos vistos en clase:
-
-- Node.js y recursos web.
-- Servicios REST.
-- Métodos GET, POST, PUT y DELETE.
-- OpenAPI.
-- Vue.js.
-- Funciones como servicio (FaaS).
-- Cloudflare Workers.
-- Cloudflare D1.
