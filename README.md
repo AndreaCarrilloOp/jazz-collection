@@ -14,7 +14,9 @@ Aplicación web académica para explorar y administrar un **catálogo de música
 
 > **Aplicación publicada:** https://jazz.collection-una.workers.dev
 
----
+## Vista previa
+
+![Vista previa de Jazz Collection]( docs/preview.png)
 
 ## 📌 Descripción
 
