@@ -1,0 +1,163 @@
+openapi: 3.0.3
+info:
+  title: Jazz Collection API
+  description: Servicio REST para administrar álbumes, artistas y subgéneros de jazz.
+  version: 1.0.0
+servers:
+  - url: https://jazz-collection.netlify.app
+paths:
+  /api/albums:
+    get:
+      summary: Listar álbumes
+      responses:
+        '200':
+          description: Lista de álbumes
+    post:
+      summary: Crear un álbum
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlbumInput'
+      responses:
+        '201':
+          description: Álbum creado
+  /api/albums/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    get:
+      summary: Consultar un álbum
+      responses:
+        '200': { description: Álbum encontrado }
+        '404': { description: Álbum no encontrado }
+    put:
+      summary: Actualizar un álbum
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlbumInput'
+      responses:
+        '200': { description: Álbum actualizado }
+    delete:
+      summary: Eliminar un álbum
+      responses:
+        '204': { description: Álbum eliminado }
+  /api/artists:
+    get:
+      summary: Listar artistas
+      responses:
+        '200': { description: Lista de artistas }
+    post:
+      summary: Crear un artista
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArtistInput'
+      responses:
+        '201': { description: Artista creado }
+  /api/artists/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    get:
+      summary: Consultar un artista
+      responses:
+        '200': { description: Artista encontrado }
+    put:
+      summary: Actualizar un artista
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArtistInput'
+      responses:
+        '200': { description: Artista actualizado }
+    delete:
+      summary: Eliminar un artista
+      responses:
+        '204': { description: Artista eliminado }
+        '409': { description: Existen álbumes relacionados }
+  /api/subgenres:
+    get:
+      summary: Listar subgéneros
+      responses:
+        '200': { description: Lista de subgéneros }
+    post:
+      summary: Crear un subgénero
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubgenreInput'
+      responses:
+        '201': { description: Subgénero creado }
+  /api/subgenres/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    get:
+      summary: Consultar un subgénero
+      responses:
+        '200': { description: Subgénero encontrado }
+    put:
+      summary: Actualizar un subgénero
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubgenreInput'
+      responses:
+        '200': { description: Subgénero actualizado }
+    delete:
+      summary: Eliminar un subgénero
+      responses:
+        '204': { description: Subgénero eliminado }
+        '409': { description: Existen álbumes relacionados }
+components:
+  schemas:
+    AlbumInput:
+      type: object
+      required: [title, release_year, label, artist_id, subgenre_id]
+      properties:
+        title: { type: string }
+        release_year: { type: integer }
+        label: { type: string }
+        description: { type: string }
+        image: { type: string }
+        artist_id: { type: string }
+        subgenre_id: { type: string }
+    ArtistInput:
+      type: object
+      required: [name, country, main_instrument]
+      properties:
+        name: { type: string }
+        country: { type: string }
+        birth_year: { type: integer }
+        main_instrument: { type: string }
+        description: { type: string }
+        image: { type: string }
+    SubgenreInput:
+      type: object
+      required: [name, origin_decade, origin_place, characteristics]
+      properties:
+        name: { type: string }
+        origin_decade: { type: string }
+        origin_place: { type: string }
+        characteristics: { type: string }
+        description: { type: string }
+        image: { type: string }
