@@ -4,7 +4,7 @@ info:
   description: Servicio REST para administrar álbumes, artistas y subgéneros de jazz.
   version: 1.0.0
 servers:
-  - url: https://jazz-collection.netlify.app
+  - url: https://jazz.collection-una.workers.dev
 paths:
   /api/albums:
     get:
